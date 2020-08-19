@@ -1,0 +1,30 @@
+<p class="mt-4">
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Cuisine:</strong>
+  <%= @restaurant.category.capitalize %>
+</p>
+
+<%= link_to 'Back', restaurants_path, class: 'btn btn-primary' %>
+
+<h3 class="mt-4">Reviews</h3>
+<ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item" class="mb-1">
+      <%= review.content %>      
+    </li>
+  <% end %>
+</ul>
+
+
+<p class="mt-4">
+  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-secondary' %>
+</p>
